@@ -1,4 +1,4 @@
-const addEmployee = 
+const addEmployee = (roles, managers) =>
 [
     {
         type: 'input',

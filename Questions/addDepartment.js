@@ -1,4 +1,4 @@
-const addDepartment = 
+const addDepartment = () =>
 [
     {
         type: 'input',

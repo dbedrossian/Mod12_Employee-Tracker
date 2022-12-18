@@ -1,4 +1,4 @@
-const addRole = 
+const addRole = () =>
 [
     {
         type: 'input',

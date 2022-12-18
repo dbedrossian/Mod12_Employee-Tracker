@@ -1,4 +1,4 @@
-const startQuestion =
+const startQuestion = () =>
 [
     {
         type: 'list',
