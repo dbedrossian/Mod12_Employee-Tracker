@@ -29,9 +29,9 @@ const db = mysql.createConnection(
 //   console.table(results);
 // });
 
-db.query('SELECT * FROM roles', function (err, results) {
-    console.log(results);
-});
+// db.query('SELECT ** FROM roles', function (err, results) {
+//     console.log(results);
+// });
 
 app.use((req, res) => {
   res.status(404).end();
@@ -41,31 +41,31 @@ app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
 
-// inquirer.prompt(startQuestion())
+inquirer.prompt(startQuestion())
 
-//     .then((responses) => {
-//         if (responses.start === 'View all departments') {
-//             console.log('view the depts');
-//             db.query('SELECT * FROM department', function (err, results) {
-//                 console.table(results);
-//               })
-//         }
-//         else if (responses.start === 'View all roles') {
-//             console.table (roles)
-//         }
-//         else if (responses.start === 'View all employees') {
-//             console.table (employees)
-//         }
-//         else if (responses.start === 'Add a department') {
-//             inquirer.prompt(addDepartment())
-//         }
-//         else if (responses.start === 'Add a role') {
-//             inquirer.prompt(addRole())
-//         }
-//         else if (responses.start === 'Add an employee') {
-//             inquirer.prompt(addEmployee())
-//         }
-//         else if (responses.start === 'Update an employee role') {
-//             inquirer.prompt(updateRole())
-//         };
-//     });
+    .then((responses) => {
+        if (responses.start === 'View all departments') {
+            console.log('view the depts');
+            db.query('SELECT * FROM department', (req, res) => {
+                console.table(res);
+              })
+        }
+        else if (responses.start === 'View all roles') {
+            console.table (roles)
+        }
+        else if (responses.start === 'View all employees') {
+            console.table (employees)
+        }
+        else if (responses.start === 'Add a department') {
+            inquirer.prompt(addDepartment())
+        }
+        else if (responses.start === 'Add a role') {
+            inquirer.prompt(addRole())
+        }
+        else if (responses.start === 'Add an employee') {
+            inquirer.prompt(addEmployee())
+        }
+        else if (responses.start === 'Update an employee role') {
+            inquirer.prompt(updateRole())
+        };
+    });
