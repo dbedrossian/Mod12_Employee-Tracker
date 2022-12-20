@@ -14,13 +14,13 @@ const addEmployee = (roles, managers) =>
         type: 'list',
         message: "What is the employee's role?",
         name: 'employeeRole',
-        // choices: 'dynamic'
+        choices: [roles]
     },
     {
         type: 'list',
         message: "Who is the employee's manager?",
         name: 'manager',
-        // choices: 'dynamic'
+        choices: [managers]
     },
 ]
 
