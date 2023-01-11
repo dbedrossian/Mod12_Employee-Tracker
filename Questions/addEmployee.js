@@ -14,13 +14,13 @@ const addEmployee = (roles, managers) =>
         type: 'list',
         message: "What is the employee's role?",
         name: 'employeeRole',
-        choices: [roles]
+        choices: roles
     },
     {
         type: 'list',
         message: "Who is the employee's manager?",
         name: 'manager',
-        choices: [managers]
+        choices: ['manager1', 'manager2', 'manager3', 'manager4']
     },
 ]
 

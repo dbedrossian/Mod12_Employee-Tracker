@@ -1,16 +1,16 @@
-const updateRole = () =>
+const updateRole = (employee, roles) =>
 [
     {
         type: 'list',
         message: 'Select the employee',
         name: 'updateRole',
-        choices: 'dynamic'
+        choices: employee
     },
     {
         type: 'list',
         message: 'Select the new role',
         name: 'newRole',
-        choices: 'dynamic'
+        choices: roles
     }
 ];
 

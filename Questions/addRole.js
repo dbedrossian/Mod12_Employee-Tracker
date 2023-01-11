@@ -1,4 +1,4 @@
-const addRole = () =>
+const addRole = (departments) =>
 [
     {
         type: 'input',
@@ -14,7 +14,7 @@ const addRole = () =>
         type: 'list',
         message: "What is the department?",
         name: 'roleDepartment',
-        // choices: 'dynamic'
+        choices: departments
     },
 ]
 
