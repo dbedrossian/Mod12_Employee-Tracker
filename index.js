@@ -91,7 +91,7 @@ function mainScreen() {
                     })
                     inquirer.prompt(addEmployee(formattedData)).then(newEmployee => {
                         let selectedId = formattedData.filter(data => data.name === newEmployee.employeeRole)[0].id;
-                        let query = `INSERT INTO employee (first_name, last_name, title, department, salary, manager_id) VALUES ('${newEmployee.firstName}', '${newEmployee.lastName}', ${selectedId});`;
+                        let query = `INSERT INTO employee (first_name, last_name, manager_id) VALUES ('${newEmployee.firstName}', '${newEmployee.lastName}', ${selectedId});`;
                         connection.promise().query(query).then((err, data) => {
                             if (!err) console.log(err);
                             mainScreen();
@@ -101,17 +101,17 @@ function mainScreen() {
             }
             else if (responses.start === 'Update an employee role') {
                 var sql = `SELECT * FROM employee`;
+                console.log(sql);
                 connection.promise().query(sql).then((data) => {
-
-                    inquirer.prompt(updateRole(formattedData)).then(newEmployee => {
-                        console.log(newEmployee.name);
                     let formattedData = data[0].map(employee => {
                         return {
                             id: employee.id,
                             name: (`${employee.first_name} ${employee.last_name}`)
-                        }
-                    })
-                // grab indiviadual employee data {'John', 'Doe', 1, 2}
+                        }                    })
+                    inquirer.prompt(updateRole(formattedData)).then(newEmployee => {
+                        console.log(newEmployee.name);
+
+                // grab individual employee data {'John', 'Doe', 1, 2}
 
                 // then ask another inquirer question "what do you want new role to be?"
 
